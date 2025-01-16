@@ -3,144 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Full Screen Background</title>
-    <style>
-        /* Estilos gerais */
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            background-color: #1a1a1a; /* Fundo padrão */
-            overflow: hidden; /* Impede rolagem */
-        }
-
-        .background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
-
-        .button {
-            position: absolute;
-            padding: 10px 20px;
-            font-size: 18px;
-            border: none;
-            border-radius: 5px;
-            color: white;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        /* Botão de download */
-        .download-button {
-            background-color: #4caf50; /* Verde */
-            top: 40%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-        /* Botões do YouTube */
-        .youtube-button-1 {
-            background-color: #ff0000; /* Vermelho do YouTube */
-            top: 60%;
-            left: 40%;
-            transform: translate(-50%, -50%);
-        }
-
-        .youtube-button-2 {
-            background-color: #ff0000; /* Vermelho do YouTube */
-            top: 60%;
-            left: 60%;
-            transform: translate(-50%, -50%);
-        }
-
-        /* Efeito hover */
-        .button:hover {
-            opacity: 0.9;
-        }
-    </style>
+    <title>Interactive Background</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Fundo -->
-    <canvas id="floatingDots" class="background"></canvas>
+    <!-- Fundo animado -->
+    <canvas id="backgroundCanvas"></canvas>
 
-    <!-- Botão de download -->
-    <a href="glove abuse 3.0v.txt" class="button download-button" download="glove abuse 3.0v.txt">Download Glove Abuse</a>
+    <!-- Conteúdo principal -->
+    <div class="content">
+        <a href="glove abuse 3.0v.txt" class="button" download="glove abuse 3.0v.txt">Download Glove Abuse</a>
+        <a href="https://www.youtube.com/@XUNAXI_Scripts" class="button" target="_blank">XUNAXI YouTube</a>
+        <a href="https://youtube.com/@donjosx?si=9a65UUaIMVRtSlZu" class="button" target="_blank">DonJosX YouTube</a>
+    </div>
 
-    <!-- Botão do YouTube 1 -->
-    <a href="https://www.youtube.com/@XUNAXI_Scripts" class="button youtube-button-1" target="_blank">XUNAXI YouTube</a>
-
-    <!-- Botão do YouTube 2 -->
-    <a href="https://youtube.com/@donjosx?si=9a65UUaIMVRtSlZu" class="button youtube-button-2" target="_blank">DonJosX YouTube</a>
-
-    <script>
-        const canvas = document.getElementById("floatingDots");
-        const ctx = canvas.getContext("2d");
-
-        // Ajusta o tamanho do canvas
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-
-        // Array para armazenar os pontos
-        const dots = [];
-
-        // Classe para criar pontos
-        class Dot {
-            constructor(x, y, radius, speed) {
-                this.x = x;
-                this.y = y;
-                this.radius = radius;
-                this.speed = speed;
-            }
-
-            draw() {
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-                ctx.fillStyle = "white";
-                ctx.fill();
-            }
-
-            update() {
-                this.y -= this.speed; // Move o ponto para cima
-                if (this.y < 0) {
-                    this.y = canvas.height; // Reposiciona no final da tela
-                }
-                this.draw();
-            }
-        }
-
-        // Função para gerar pontos aleatórios
-        function generateDots() {
-            for (let i = 0; i < 100; i++) {
-                const x = Math.random() * canvas.width;
-                const y = Math.random() * canvas.height;
-                const radius = Math.random() * 3 + 1; // Tamanho aleatório
-                const speed = Math.random() * 2 + 0.5; // Velocidade aleatória
-                dots.push(new Dot(x, y, radius, speed));
-            }
-        }
-
-        // Animação dos pontos
-        function animate() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            dots.forEach(dot => dot.update());
-            requestAnimationFrame(animate);
-        }
-
-        // Inicia o efeito
-        generateDots();
-        animate();
-
-        // Atualiza o canvas ao redimensionar a janela
-        window.addEventListener("resize", () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-            dots.length = 0; // Remove os pontos existentes
-            generateDots(); // Gera novos pontos
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
