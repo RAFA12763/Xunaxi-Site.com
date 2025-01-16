@@ -3,27 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Imagem de Tela Cheia</title>
+    <style>
+        /* Estilos para garantir que a imagem cubra toda a tela */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        .imagem-fullscreen {
+            position: fixed; /* Fixa a imagem no fundo da tela */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('imagem.jpg'); /* A imagem está no mesmo diretório */
+            background-size: cover; /* Faz a imagem cobrir toda a tela */
+            background-position: center; /* Centraliza a imagem */
+            z-index: -1; /* Coloca a imagem atrás do conteúdo */
+        }
+
+        /* Estilos para o botão de download */
+        .botao-download {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); /* Centraliza o botão */
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: rgba(0, 0, 0, 0.7); /* Fundo transparente escuro */
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .botao-download:hover {
+            background-color: rgba(0, 0, 0, 0.9); /* Efeito de hover */
+        }
+    </style>
 </head>
 <body>
-    <div class="login-form">
-        <h2>Login</h2>
-        <form id="loginForm">
-            <label for="loginUsername">Nome de Usuário</label>
-            <input type="text" id="loginUsername" required>
 
-            <label for="loginPassword">Senha</label>
-            <input type="password" id="loginPassword" required>
+    <!-- Imagem de fundo que cobre a tela -->
+    <div class="imagem-fullscreen"></div>
 
-            <input type="submit" value="Entrar">
-        </form>
+    <!-- Botão de download -->
+    <a href="imagem.jpg" class="botao-download" download="imagem.jpg">Baixar Imagem</a>
 
-        <div class="redirect-link">
-            <p>Não tem uma conta? <a href="register.html">Registre-se aqui</a></p>
-        </div>
-    </div>
-
-    <script src="app.js"></script>
 </body>
 </html>
