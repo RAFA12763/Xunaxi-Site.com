@@ -1,65 +1,26 @@
-// Seleciona o canvas e ajusta o tamanho
-const canvas = document.getElementById('backgroundCanvas');
-const ctx = canvas.getContext('2d');
-
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-// Array para armazenar os pontos
-let particles = [];
-
-// Classe de Partícula
-class Particle {
-    constructor(x, y, radius, speed) {
-        this.x = x;
-        this.y = y;
-        this.radius = radius;
-        this.speed = speed;
-    }
-
-    draw() {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        ctx.fillStyle = 'white';
-        ctx.fill();
-    }
-
-    update() {
-        this.y -= this.speed;
-        if (this.y < 0) {
-            this.y = canvas.height; // Reposiciona a partícula no final da tela
-            this.x = Math.random() * canvas.width;
-        }
-        this.draw();
-    }
-}
-
-// Gera partículas aleatórias
-function initParticles() {
-    particles = [];
-    for (let i = 0; i < 100; i++) {
-        const x = Math.random() * canvas.width;
-        const y = Math.random() * canvas.height;
-        const radius = Math.random() * 3 + 1;
-        const speed = Math.random() * 1.5 + 0.5;
-        particles.push(new Particle(x, y, radius, speed));
-    }
-}
-
-// Atualiza e desenha as partículas
-function animateParticles() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    particles.forEach(particle => particle.update());
-    requestAnimationFrame(animateParticles);
-}
-
-// Ajusta o tamanho do canvas ao redimensionar
-window.addEventListener('resize', () => {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    initParticles();
+// Botão de download
+document.getElementById("downloadBtn").addEventListener("click", () => {
+    // Inicia o download do arquivo "glove abuse 3.0v.txt"
+    const link = document.createElement("a");
+    link.href = "glove abuse 3.0v.txt"; // Substitua pelo caminho correto do arquivo
+    link.download = "glove abuse 3.0v.txt";
+    link.click();
 });
 
-// Inicializa as partículas e inicia a animação
-initParticles();
-animateParticles();
+// Botão do Discord
+document.getElementById("discordBtn").addEventListener("click", () => {
+    // Abre o link do Discord
+    window.open("https://discord.gg/7Qys7Gt45g", "_blank");
+});
+
+// Botão do YouTube (XUNAXI)
+document.getElementById("youtubeXunaxi").addEventListener("click", () => {
+    // Abre o canal XUNAXI YouTube
+    window.open("https://www.youtube.com/@XUNAXI_Scripts", "_blank");
+});
+
+// Botão do YouTube (DonJosX)
+document.getElementById("youtubeDonJosX").addEventListener("click", () => {
+    // Abre o canal DonJosX YouTube
+    window.open("https://youtube.com/@donjosx?si=9a65UUaIMVRtSlZu", "_blank");
+});
