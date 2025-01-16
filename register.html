@@ -3,26 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registrar Conta</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Registro</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-    <div class="register-container">
+    <div class="register-form">
         <h2>Criar Conta</h2>
         <form id="registerForm">
-            <div class="input-group">
-                <label for="username">Nome de usuário:</label>
-                <input type="text" id="username" placeholder="Escolha seu nome de usuário" required>
-            </div>
-            <div class="input-group">
-                <label for="password">Senha:</label>
-                <input type="password" id="password" placeholder="Escolha sua senha" required>
-            </div>
-            <button type="submit">Registrar</button>
+            <label for="registerUsername">Nome de Usuário</label>
+            <input type="text" id="registerUsername" required>
+
+            <label for="registerPassword">Senha</label>
+            <input type="password" id="registerPassword" required>
+
+            <input type="submit" value="Registrar">
         </form>
+
+        <div class="redirect-link">
+            <p>Já tem uma conta? <a href="login.html">Faça login aqui</a></p>
+        </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
