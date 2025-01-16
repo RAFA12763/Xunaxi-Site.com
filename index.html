@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Full Screen Image</title>
     <style>
-        /* Styles to make the image cover the full screen */
+        /* Estilos para a imagem cobrir toda a tela */
         body, html {
             margin: 0;
             padding: 0;
@@ -13,26 +13,26 @@
         }
 
         .image-fullscreen {
-            position: fixed; /* Fixes the image at the background of the screen */
+            position: fixed; /* Fixa a imagem no fundo da tela */
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('imagem.jpg'); /* The image is in the same directory */
-            background-size: cover; /* Makes the image cover the full screen */
-            background-position: center; /* Centers the image */
-            z-index: -1; /* Places the image behind the content */
+            background-image: url('imagem.jpg'); /* A imagem está no mesmo diretório */
+            background-size: cover; /* Faz a imagem cobrir toda a tela */
+            background-position: center; /* Centraliza a imagem */
+            z-index: -1; /* Coloca a imagem atrás do conteúdo */
         }
 
-        /* Styles for the download button */
+        /* Estilos para o botão de download */
         .download-button {
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%); /* Centers the button */
+            transform: translate(-50%, -50%); /* Centraliza o botão */
             padding: 10px 20px;
             font-size: 18px;
-            background-color: rgba(0, 0, 0, 0.7); /* Dark transparent background */
+            background-color: rgba(0, 0, 0, 0.7); /* Fundo transparente escuro */
             color: white;
             border: none;
             cursor: pointer;
@@ -41,18 +41,18 @@
         }
 
         .download-button:hover {
-            background-color: rgba(0, 0, 0, 0.9); /* Hover effect */
+            background-color: rgba(0, 0, 0, 0.9); /* Efeito de hover */
         }
 
-        /* Styles for the Discord button */
+        /* Estilos para o botão do Discord */
         .discord-button {
             position: absolute;
             top: 60%;
             left: 50%;
-            transform: translate(-50%, -50%); /* Centers the button */
+            transform: translate(-50%, -50%); /* Centraliza o botão */
             padding: 10px 20px;
             font-size: 18px;
-            background-color: #7289da; /* Discord color */
+            background-color: #7289da; /* Cor do Discord */
             color: white;
             border: none;
             cursor: pointer;
@@ -61,18 +61,18 @@
         }
 
         .discord-button:hover {
-            background-color: #5b6e98; /* Darker Discord color on hover */
+            background-color: #5b6e98; /* Cor do Discord ao passar o mouse */
         }
 
-        /* Styles for the YouTube buttons */
+        /* Estilos para os botões do YouTube */
         .youtube-button {
             position: absolute;
             top: 70%;
             left: 50%;
-            transform: translate(-50%, -50%); /* Centers the button */
+            transform: translate(-50%, -50%); /* Centraliza o botão */
             padding: 10px 20px;
             font-size: 18px;
-            background-color: #ff0000; /* YouTube red */
+            background-color: #ff0000; /* Cor vermelha do YouTube */
             color: white;
             border: none;
             cursor: pointer;
@@ -81,27 +81,30 @@
         }
 
         .youtube-button:hover {
-            background-color: #cc0000; /* Darker red on hover */
+            background-color: #cc0000; /* Cor vermelha mais escura ao passar o mouse */
         }
 
     </style>
 </head>
 <body>
 
-    <!-- Full screen image that covers the entire page -->
+    <!-- Imagem de fundo que cobre toda a tela -->
     <div class="image-fullscreen"></div>
 
-    <!-- Download button -->
+    <!-- Botão de download -->
     <a href="imagem.jpg" class="download-button" download="image.jpg">Download Image</a>
 
-    <!-- Discord button -->
+    <!-- Botão do Discord -->
     <a href="https://discord.gg/7Qys7Gt45g" class="discord-button" target="_blank">Join our Discord</a>
 
-    <!-- YouTube button for XUNAXI_Scripts -->
+    <!-- Botão do YouTube para XUNAXI_Scripts -->
     <a href="https://www.youtube.com/@XUNAXI_Scripts" class="youtube-button" target="_blank">Visit XUNAXI_Scripts YouTube</a>
 
-    <!-- YouTube button for DonJosX -->
+    <!-- Botão do YouTube para DonJosX -->
     <a href="https://youtube.com/@donjosx?si=9a65UUaIMVRtSlZu" class="youtube-button" target="_blank">Visit DonJosX YouTube</a>
+
+    <!-- Botão do YouTube para outro XUNAXI -->
+    <a href="https://www.youtube.com/@XUNAXI_Scripts" class="youtube-button" target="_blank">Visit XUNAXI_Scripts YouTube (Second)</a>
 
 </body>
 </html>
