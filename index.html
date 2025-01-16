@@ -3,18 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Background</title>
+    <title>Interactive Buttons</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Fundo animado -->
-    <canvas id="backgroundCanvas"></canvas>
+    <!-- Fundo -->
+    <div class="image-fullscreen"></div>
 
-    <!-- Conteúdo principal -->
-    <div class="content">
-        <a href="glove abuse 3.0v.txt" class="button" download="glove abuse 3.0v.txt">Download Glove Abuse</a>
-        <a href="https://www.youtube.com/@XUNAXI_Scripts" class="button" target="_blank">XUNAXI YouTube</a>
-        <a href="https://youtube.com/@donjosx?si=9a65UUaIMVRtSlZu" class="button" target="_blank">DonJosX YouTube</a>
+    <!-- Botões -->
+    <div class="button-container">
+        <!-- Botão de download -->
+        <button class="button download-button" id="downloadBtn">Download Glove Abuse</button>
+
+        <!-- Botão do Discord -->
+        <button class="button discord-button" id="discordBtn">Join our Discord</button>
+
+        <!-- Botões do YouTube -->
+        <button class="button youtube-button" id="youtubeXunaxi">Visit XUNAXI YouTube</button>
+        <button class="button youtube-button" id="youtubeDonJosX">Visit DonJosX YouTube</button>
     </div>
 
     <script src="script.js"></script>
