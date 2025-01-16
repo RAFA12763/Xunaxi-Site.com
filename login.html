@@ -4,25 +4,104 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f2f2f2;
+            margin: 0;
+        }
+
+        .login-form {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin: 8px 0 4px;
+        }
+
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .redirect-link {
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
 
-    <div class="login-container">
+    <div class="login-form">
         <h2>Login</h2>
         <form id="loginForm">
-            <div class="input-group">
-                <label for="username">Nome de usuário:</label>
-                <input type="text" id="loginUsername" placeholder="Digite seu nome de usuário" required>
-            </div>
-            <div class="input-group">
-                <label for="password">Senha:</label>
-                <input type="password" id="loginPassword" placeholder="Digite sua senha" required>
-            </div>
-            <button type="submit">Entrar</button>
+            <label for="loginUsername">Username</label>
+            <input type="text" id="loginUsername" required>
+
+            <label for="loginPassword">Password</label>
+            <input type="password" id="loginPassword" required>
+
+            <input type="submit" value="Login">
         </form>
+
+        <div class="redirect-link">
+            <p>Não tem uma conta? <a href="register.html">Registre-se aqui</a></p>
+        </div>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        // Verifica se o usuário já está logado
+        if (localStorage.getItem("loggedInUser")) {
+            window.location.href = "chat.html";  // Redireciona se já estiver logado
+        }
+
+        // Lógica de Login
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            let username = document.getElementById("loginUsername").value;
+            let password = document.getElementById("loginPassword").value;
+
+            let users = JSON.parse(localStorage.getItem("users")) || [];
+            let user = users.find(u => u.username === username && u.password === password);
+
+            if (user) {
+                localStorage.setItem("loggedInUser", username);  // Armazena o usuário logado
+                window.location.href = "chat.html";  // Redireciona para o chat
+            } else {
+                alert("Usuário ou senha incorretos.");
+            }
+        });
+    </script>
+
 </body>
 </html>
