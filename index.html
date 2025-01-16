@@ -3,108 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Full Screen Image</title>
+    <title>Full Screen Background</title>
     <style>
-        /* Estilos para a imagem cobrir toda a tela */
+        /* Estilos gerais */
         body, html {
             margin: 0;
             padding: 0;
             height: 100%;
+            background-color: #1a1a1a; /* Fundo padrão */
+            overflow: hidden; /* Impede rolagem */
         }
 
-        .image-fullscreen {
-            position: fixed; /* Fixa a imagem no fundo da tela */
+        .background {
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('imagem.jpg'); /* A imagem está no mesmo diretório */
-            background-size: cover; /* Faz a imagem cobrir toda a tela */
-            background-position: center; /* Centraliza a imagem */
-            z-index: -1; /* Coloca a imagem atrás do conteúdo */
+            z-index: -1;
         }
 
-        /* Estilos para o botão de download */
+        .button {
+            position: absolute;
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Botão de download */
         .download-button {
-            position: absolute;
-            top: 50%;
+            background-color: #4caf50; /* Verde */
+            top: 40%;
             left: 50%;
-            transform: translate(-50%, -50%); /* Centraliza o botão */
-            padding: 10px 20px;
-            font-size: 18px;
-            background-color: rgba(0, 0, 0, 0.7); /* Fundo transparente escuro */
-            color: white;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-            text-decoration: none;
+            transform: translate(-50%, -50%);
         }
 
-        .download-button:hover {
-            background-color: rgba(0, 0, 0, 0.9); /* Efeito de hover */
-        }
-
-        /* Estilos para o botão do Discord */
-        .discord-button {
-            position: absolute;
+        /* Botões do YouTube */
+        .youtube-button-1 {
+            background-color: #ff0000; /* Vermelho do YouTube */
             top: 60%;
-            left: 50%;
-            transform: translate(-50%, -50%); /* Centraliza o botão */
-            padding: 10px 20px;
-            font-size: 18px;
-            background-color: #7289da; /* Cor do Discord */
-            color: white;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-            text-decoration: none;
+            left: 40%;
+            transform: translate(-50%, -50%);
         }
 
-        .discord-button:hover {
-            background-color: #5b6e98; /* Cor do Discord ao passar o mouse */
+        .youtube-button-2 {
+            background-color: #ff0000; /* Vermelho do YouTube */
+            top: 60%;
+            left: 60%;
+            transform: translate(-50%, -50%);
         }
 
-        /* Estilos para os botões do YouTube */
-        .youtube-button {
-            position: absolute;
-            top: 70%;
-            left: 50%;
-            transform: translate(-50%, -50%); /* Centraliza o botão */
-            padding: 10px 20px;
-            font-size: 18px;
-            background-color: #ff0000; /* Cor vermelha do YouTube */
-            color: white;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-            text-decoration: none;
+        /* Efeito hover */
+        .button:hover {
+            opacity: 0.9;
         }
-
-        .youtube-button:hover {
-            background-color: #cc0000; /* Cor vermelha mais escura ao passar o mouse */
-        }
-
     </style>
 </head>
 <body>
-
-    <!-- Imagem de fundo que cobre toda a tela -->
-    <div class="image-fullscreen"></div>
+    <!-- Fundo -->
+    <canvas id="floatingDots" class="background"></canvas>
 
     <!-- Botão de download -->
-    <a href="glove abuse 3.0v.txt" class="download-button" download="glove abuse 3.0v.txt">Download Script</a>
+    <a href="glove abuse 3.0v.txt" class="button download-button" download="glove abuse 3.0v.txt">Download Glove Abuse</a>
 
-    <!-- Botão do Discord -->
-    <a href="https://discord.gg/7Qys7Gt45g" class="discord-button" target="_blank">Join our Discord</a>
+    <!-- Botão do YouTube 1 -->
+    <a href="https://www.youtube.com/@XUNAXI_Scripts" class="button youtube-button-1" target="_blank">XUNAXI YouTube</a>
 
-    <!-- Botão do YouTube para XUNAXI_Scripts -->
-    <a href="https://www.youtube.com/@XUNAXI_Scripts" class="youtube-button" target="_blank">Visit XUNAXI_Scripts YouTube</a>
+    <!-- Botão do YouTube 2 -->
+    <a href="https://youtube.com/@donjosx?si=9a65UUaIMVRtSlZu" class="button youtube-button-2" target="_blank">DonJosX YouTube</a>
 
-    <!-- Botão do YouTube para DonJosX -->
-    <a href="https://youtube.com/@donjosx?si=9a65UUaIMVRtSlZu" class="youtube-button" target="_blank">Visit DonJosX YouTube</a>
+    <script>
+        const canvas = document.getElementById("floatingDots");
+        const ctx = canvas.getContext("2d");
 
-    <!-- Botão do YouTube para outro XUNAXI -->
-    <a href="https://www.youtube.com/@XUNAXI_Scripts" class="youtube-button" target="_blank">Visit XUNAXI_Scripts YouTube (Second)</a>
+        // Ajusta o tamanho do canvas
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
 
+        // Array para armazenar os pontos
+        const dots = [];
+
+        // Classe para criar pontos
+        class Dot {
+            constructor(x, y, radius, speed) {
+                this.x = x;
+                this.y = y;
+                this.radius = radius;
+                this.speed = speed;
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = "white";
+                ctx.fill();
+            }
+
+            update() {
+                this.y -= this.speed; // Move o ponto para cima
+                if (this.y < 0) {
+                    this.y = canvas.height; // Reposiciona no final da tela
+                }
+                this.draw();
+            }
+        }
+
+        // Função para gerar pontos aleatórios
+        function generateDots() {
+            for (let i = 0; i < 100; i++) {
+                const x = Math.random() * canvas.width;
+                const y = Math.random() * canvas.height;
+                const radius = Math.random() * 3 + 1; // Tamanho aleatório
+                const speed = Math.random() * 2 + 0.5; // Velocidade aleatória
+                dots.push(new Dot(x, y, radius, speed));
+            }
+        }
+
+        // Animação dos pontos
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            dots.forEach(dot => dot.update());
+            requestAnimationFrame(animate);
+        }
+
+        // Inicia o efeito
+        generateDots();
+        animate();
+
+        // Atualiza o canvas ao redimensionar a janela
+        window.addEventListener("resize", () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            dots.length = 0; // Remove os pontos existentes
+            generateDots(); // Gera novos pontos
+        });
+    </script>
 </body>
 </html>
