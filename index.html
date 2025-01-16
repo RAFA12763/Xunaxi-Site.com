@@ -1,38 +1,38 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Imagem de Tela Cheia</title>
+    <title>Full Screen Image</title>
     <style>
-        /* Estilos para garantir que a imagem cubra toda a tela */
+        /* Styles to make the image cover the full screen */
         body, html {
             margin: 0;
             padding: 0;
             height: 100%;
         }
 
-        .imagem-fullscreen {
-            position: fixed; /* Fixa a imagem no fundo da tela */
+        .image-fullscreen {
+            position: fixed; /* Fixes the image at the background of the screen */
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('imagem.jpg'); /* A imagem está no mesmo diretório */
-            background-size: cover; /* Faz a imagem cobrir toda a tela */
-            background-position: center; /* Centraliza a imagem */
-            z-index: -1; /* Coloca a imagem atrás do conteúdo */
+            background-image: url('imagem.jpg'); /* The image is in the same directory */
+            background-size: cover; /* Makes the image cover the full screen */
+            background-position: center; /* Centers the image */
+            z-index: -1; /* Places the image behind the content */
         }
 
-        /* Estilos para o botão de download */
-        .botao-download {
+        /* Styles for the download button */
+        .download-button {
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%); /* Centraliza o botão */
+            transform: translate(-50%, -50%); /* Centers the button */
             padding: 10px 20px;
             font-size: 18px;
-            background-color: rgba(0, 0, 0, 0.7); /* Fundo transparente escuro */
+            background-color: rgba(0, 0, 0, 0.7); /* Dark transparent background */
             color: white;
             border: none;
             cursor: pointer;
@@ -40,18 +40,41 @@
             text-decoration: none;
         }
 
-        .botao-download:hover {
-            background-color: rgba(0, 0, 0, 0.9); /* Efeito de hover */
+        .download-button:hover {
+            background-color: rgba(0, 0, 0, 0.9); /* Hover effect */
+        }
+
+        /* Styles for the Discord button */
+        .discord-button {
+            position: absolute;
+            top: 60%;
+            left: 50%;
+            transform: translate(-50%, -50%); /* Centers the button */
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #7289da; /* Discord color */
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .discord-button:hover {
+            background-color: #5b6e98; /* Darker Discord color on hover */
         }
     </style>
 </head>
 <body>
 
-    <!-- Imagem de fundo que cobre a tela -->
-    <div class="imagem-fullscreen"></div>
+    <!-- Full screen image that covers the entire page -->
+    <div class="image-fullscreen"></div>
 
-    <!-- Botão de download -->
-    <a href="imagem.jpg" class="botao-download" download="imagem.jpg">Baixar Imagem</a>
+    <!-- Download button -->
+    <a href="imagem.jpg" class="download-button" download="image.jpg">Download Image</a>
+
+    <!-- Discord button -->
+    <a href="https://discord.gg/7Qys7Gt45g" class="discord-button" target="_blank">Join our Discord</a>
 
 </body>
 </html>
